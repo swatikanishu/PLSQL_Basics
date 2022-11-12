@@ -1,0 +1,40 @@
+
+DECLARE
+
+
+	num		 INTEGER;
+	num_to_word VARCHAR2(100);
+	str		 VARCHAR2(100);
+	len		 INTEGER;
+	c		 INTEGER;
+BEGIN
+	num := 12345;
+
+	len := Length(num);
+
+	dbms_output.Put_line('Entered Number is: '
+						||num);
+
+	FOR i IN 1..len LOOP
+		c := Substr(num, i, 1);
+
+		SELECT Decode(c, 0, 'Zero ',
+						1, 'One ',
+						2, 'Two ',
+						3, 'Three ',
+						4, 'Four ',
+						5, 'Five '
+					)
+		INTO str
+		FROM dual;
+
+		num_to_word := num_to_word
+					||str;
+	END LOOP;
+
+	dbms_output.Put_line('Number to words: '
+						||num_to_word);
+END;
+
+
+
