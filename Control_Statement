@@ -99,6 +99,6 @@ end;
 
 
 --Inserting and get table
-insert into bankaccount values('Lokesh',6546745645);
+insert into bankaccount values('Swatika',6546745645);
 
 SELECT * FROM bankaccount;
